@@ -3,4 +3,4 @@ for i in "abcdefghijklmnopqrstuvwxyz":
     if i == 'q' or i == 'e':
         pass
     else:
-        print(i, end='')
+        print(f"{i}", end='')
