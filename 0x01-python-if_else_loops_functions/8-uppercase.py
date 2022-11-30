@@ -2,5 +2,5 @@
 def uppercase(str):
     for i in str:
         s = chr(ord(i) - 32)
-        print(f"{s}", end='')
+        print("{}".format(s), end='')
     print()
