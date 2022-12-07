@@ -4,5 +4,5 @@ def uniq_add(my_list=[]):
     number = 0
 
     for item in one_only:
-        number += i
+        number += 1
     return (number)
