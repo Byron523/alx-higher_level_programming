@@ -1,7 +1,13 @@
 #!/usr/bin/python3
-class Square():
-    """Class Square that defines a square"""
+"""
+A class called Square that has a pvt
+instance called size
+"""
+
+
+class Square:
+    """ A Square class that have size as pvt attr """
+
     def __init__(self, size):
-    """Initialize method that stores the size of the square
-    Args: Param1 (int): size of square """
+        """ an init method that initialise the class """
         self.__size = size
