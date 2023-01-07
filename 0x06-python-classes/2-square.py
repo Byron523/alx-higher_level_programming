@@ -1,14 +1,17 @@
 #!/usr/bin/python3
-class Square():
-    """ Class Square that defines a Square """
-    def __init__(self, size=0):
-        """ Initialise method that stores the square
+"""
+A class called Square that has a pvt
+instance called size
+"""
 
-        Args:
-        param1 (int): size of square """
-        if size < 0:
-            raise ValueError('size must be >= 0')
-        else:
-            for s in size:
-                raise TypeError('size must be an integer')
+
+class Square:
+    """ A Square class that have size as pvt attr """
+
+    def __init__(self, size=0):
+        """ an init method that initialise the class """
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
         self.__size = size
