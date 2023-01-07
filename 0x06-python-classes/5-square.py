@@ -34,6 +34,5 @@ class Square:
         """ A method that prints to stdout the square """
         for i in range(self.__size):
             for j in range(self.__size):
-                print("#",end='')
+                print("#", end='')
             print()
-
