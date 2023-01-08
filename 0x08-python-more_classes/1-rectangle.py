@@ -22,7 +22,7 @@ class Rectangle:
         """ A width property setter """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
-        if width < 0:
+        if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
 
@@ -36,6 +36,6 @@ class Rectangle:
         """ a height property setter """
         if not isinstance(value, int):
              raise TypeError("width must be an integer")
-        if width < 0:
+        if value < 0:
              raise ValueError("width must be >= 0")
         self.__height = value
