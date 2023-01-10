@@ -12,6 +12,8 @@ def from_json_string(my_str):
     Args:
     filename: my_str
 
+    Raises:
+    Exception: when the string cant be decoded
 
     """
     return (json.loads(my_str))
