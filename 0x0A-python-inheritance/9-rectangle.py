@@ -23,4 +23,4 @@ class Rectangle:
         print(a)
 
     def __str__(self):
-        return (f"[Rectangle] {:d}/{:d}".format(self.__width, self.__height))
+        return ("[Rectangle] {:d}/{:d}".format(self.__width, self.__height))
