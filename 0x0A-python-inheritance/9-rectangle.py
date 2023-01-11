@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+
 class Rectangle:
     """ A class rectangle that inherits, basegeometry """
 
@@ -18,7 +19,7 @@ class Rectangle:
 
     def area(self):
         """ area calculates area of the rectangle """
-		a = self.__width * self.__height
+        a = self.__width * self.__height
         print(a)
 
     def __str__(self):
