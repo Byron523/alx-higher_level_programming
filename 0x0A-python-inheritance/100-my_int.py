@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ A class that int """
 
+
 class MyInt(int):
     """ MyInt inherits a class called int """
 
