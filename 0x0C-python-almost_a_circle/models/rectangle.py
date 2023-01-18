@@ -19,9 +19,9 @@ class Rectangle(Base):
             x: x
             y: y
             id: id
-        
+
         """
-		super().__init__(id)
+        super().__init__(id)
         self.__width = width
         self.__height = height
         self.x = x
