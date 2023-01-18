@@ -34,9 +34,13 @@ class Rectangle(Base):
         return (self.__width)
 
     @width.setter
-    def width(self, width):
+    def width(self, value):
         """ a method that sets the value of width """
-        self.__width = width
+        if type(value) != int:
+            raise TypeError("width must be an integer")
+        elif value <= 0:
+            raise ValueError("width must be > 0")
+        self.__width = value
 
     @property
     def height(self):
@@ -44,9 +48,13 @@ class Rectangle(Base):
         return (self.__height)
 
     @height.setter
-    def height(self, height):
+    def height(self, value):
         """ a method that sets the value of height """
-        self.__height = height
+        if type(value) != int:
+            raise TypeError("height must be an integer")
+        elif value <= 0:
+            raise ValueError("height must be > 0")
+        self.__height = value
 
     @property
     def x(self):
@@ -54,9 +62,11 @@ class Rectangle(Base):
         return (self.__x)
 
     @x.setter
-    def x(self, x):
+    def x(self, value):
         """ a method that sets the value of x coordinates """
-        self.__x = x
+        if value < 0:
+            raise ValueError("x must be >= 0")
+        self.__x = value
 
     @property
     def y(self):
@@ -64,6 +74,8 @@ class Rectangle(Base):
         return (self.__y)
 
     @y.setter
-    def y(self, y):
+    def y(self, value):
         """ a method that sets the value of y coordinate """
-        self.__y = y
+        if value < 0:
+            raise ValueError("y must be >= 0")
+        self.__y = value
