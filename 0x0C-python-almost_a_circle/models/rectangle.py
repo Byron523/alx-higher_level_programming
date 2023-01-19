@@ -87,3 +87,10 @@ class Rectangle(Base):
     def area(self):
         """ a method that calculates area of a Rectangle """
         return (self.__width * self.__height)
+
+    def display(self):
+        """ a method that displays Rectangle using hashes """
+        for i in range(self.__height):
+            for j in range(self.__width):
+                print("#", end='')
+            print()
