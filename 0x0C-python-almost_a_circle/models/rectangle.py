@@ -103,7 +103,11 @@ class Rectangle(Base):
                                                  self.__width, self.__height))
 
     def update(self, *args, **kwargs):
-        """ update assigns an argument to each attribute """
+        """ update assigns an argument to each attribute
+        Args:
+            *args: non keyword arguments
+            **kwargs: keyword arguments
+        """
         if args is not None and len(args) != 0:
             j = len(args)
             attr = ['id', 'width', 'height', 'x', 'y']
@@ -112,3 +116,15 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """ A method that returns a dictionary repre of Rectangle """
+        my_dict = {}
+
+        my_dict["id"] = self.id
+        my_dict["width"] = self.__width
+        my_dict["height"] = self.__height
+        my_dict["x"] = self.__x
+        my_dict["y"] = self.__y
+
+        return (my_dict)
