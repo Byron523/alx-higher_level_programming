@@ -104,7 +104,7 @@ class Rectangle(Base):
 
     def update(self, *args):
         """ update assigns an argument to each attribute """
-        if args != None and len(args) != 0:
+        if args is not None and len(args) != 0:
             j = len(args)
             attr = ['id', 'width', 'height', 'x', 'y']
             for i in range(j):
