@@ -76,3 +76,52 @@ class Base:
                 return [cls.create(**d) for d in dicts]
         except IOError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ A CSV serialization method from list to a file
+        Args:
+            list_objs(list): list inherited
+        """
+        outfile = cls.__name__ + ".csv"
+        with open(outfile, "w", newline="") as csvfile:
+            if list_objs is None or list_objs == []:
+                csv.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    field = ['id', 'width', 'height', 'x', 'y']
+                else:
+                    field = ['id', 'size', 'x', 'y']
+                writer = csv.DictWriter(csvfile, field=field)
+                for item in list_objs:
+                    writer.writerow(item.to_dictionary())
+
+    @classmethod
+    def load_from_csv(cls):
+        """ Method that loads a CSV file """
+        filee = "{}.csv".format(cls.__name__)
+
+        if os.path.exists(filee) is False:
+            return []
+
+        with open(filee, 'r') as outfile:
+            reader = csv.reader(outfile)
+            csv_l = list(reader)
+
+        if cls.__name__ == "Rectangle":
+            l_keys = ['id', 'width', 'height', 'x', 'y']
+        else:
+            l_keys = ['id', 'size', 'x', 'y']
+
+        matrix = []
+        for item in csv_l:
+            my_dict = {}
+            for i in enumerate(item):
+                my_dict[l_keys[i[0]]] = int(i[0])
+            matrix.append(my_dict)
+
+        lis = []
+        for item in range(len(matrix)):
+            lis.append(cls.create(**matrix[index]))
+
+        return (lis)
