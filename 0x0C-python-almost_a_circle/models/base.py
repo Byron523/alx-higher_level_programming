@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """ A class module called base """
 import json
+import csv
+import turtle
+import os
 
 
 class Base:
