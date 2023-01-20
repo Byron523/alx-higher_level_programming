@@ -25,7 +25,7 @@ class Base:
            item1: dictionary item
         """
         s = "[]"
-        if list_dictionaries is None:
+        if list_dictionaries is None or list_dictionaries == []:
             return (s)
         else:
             out = json.dumps(list_dictionaries)
