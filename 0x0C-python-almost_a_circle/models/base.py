@@ -56,11 +56,11 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ a class method that returns an instance
-		Args:
+        Args:
             object: a double pointer dictionary
-		"""
+        """
         if cls.__name__ == "Rectangle":
-            new = cls(1,1)
+            new = cls(1, 1)
         else:
             new = cls(1)
         new.update(**dictionary)
