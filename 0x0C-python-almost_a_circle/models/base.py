@@ -97,31 +97,63 @@ class Base:
                     writer.writerow(item.to_dictionary())
 
     @classmethod
-    def load_from_csv(cls):
-        """ Method that loads a CSV file """
-        filee = "{}.csv".format(cls.__name__)
-
-        if os.path.exists(filee) is False:
+    def load_from_file_csv(cls):
+        """Return a list of classes instantiated from a CSV file.
+        Reads from `<cls.__name__>.csv`.
+        Returns:
+            If the file does not exist - an empty list.
+            Otherwise - a list of instantiated classes.
+        """
+        outfile = cls.__name__ + ".csv"
+        try:
+            with open(outfile, "r", newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    field = ["id", "width", "height", "x", "y"]
+                else:
+                    field = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvfile, field=field)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
             return []
 
-        with open(filee, 'r') as outfile:
-            reader = csv.reader(outfile)
-            csv_l = list(reader)
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ This method Rectangles and Squares using the turtle module.
+        Args:
+            list_rectangles (list): A list of Rectangle objects to draw.
+            list_squares (list): A list of Square objects to draw.
+        """
+        turt = turtle.Turtle()
+        turt.screen.bgcolor("#b7312c")
+        turt.pensize(3)
+        turt.shape("turtle")
 
-        if cls.__name__ == "Rectangle":
-            l_keys = ['id', 'width', 'height', 'x', 'y']
-        else:
-            l_keys = ['id', 'size', 'x', 'y']
+        turt.color("#ffffff")
+        for rect in list_rectangles:
+            turt.showturtle()
+            turt.up()
+            turt.goto(rect.x, rect.y)
+            turt.down()
+            for i in range(2):
+                turt.forward(rect.width)
+                turt.left(90)
+                turt.forward(rect.height)
+                turt.left(90)
+            turt.hideturtle()
 
-        matrix = []
-        for item in csv_l:
-            my_dict = {}
-            for i in enumerate(item):
-                my_dict[l_keys[i[0]]] = int(i[0])
-            matrix.append(my_dict)
+        turt.color("#b5e3d8")
+        for sq in list_squares:
+            turt.showturtle()
+            turt.up()
+            turt.goto(sq.x, sq.y)
+            turt.down()
+            for i in range(2):
+                turt.forward(sq.width)
+                turt.left(90)
+                turt.forward(sq.height)
+                turt.left(90)
+            turt.hideturtle()
 
-        lis = []
-        for item in range(len(matrix)):
-            lis.append(cls.create(**matrix[index]))
-
-        return (lis)
+        turtle.exitonclick()
