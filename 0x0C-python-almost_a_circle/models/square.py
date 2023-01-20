@@ -22,3 +22,18 @@ class Square(Rectangle):
         """ A method that inherits from Square and apply the same logic """
         return ("[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
                                                   self.width))
+
+    @property
+    def size(self):
+        """ Size property getter """
+        return (self.width)
+
+    @size.setter
+    def size(self, value):
+        """ a setter method for size """
+        if type(value) != int:
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
+        self.width = value
+        self.height = value
