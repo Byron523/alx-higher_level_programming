@@ -1,0 +1,34 @@
+================================================
+testing the add_integer function for corner cases using the txt
+=================================================
+
+I am calling only one function: add_integer()
+
+''add_integer'' returns the some of two integers
+
+import the module to use
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+add 1 and 2
+	>>> add_integer(5, 2)
+	7
+
+adding float 3.5 and 6.9
+	>>> add_integer(3.5, 6.9)
+	9
+
+subtract 5 from 50
+	>>> add_integer(50, -5)
+	45
+
+add with a string
+	>>> add_string(5, '5')
+	b must be an integer
+
+add a as a string
+	>>> add_string('1', 4)
+	a must be an integer
+
+adding a fraction
+	>>> add_string(1/2, 1/2)
+	0
